@@ -1,0 +1,115 @@
+.group-header {
+  display: flex;
+  justify-content: space-between; /* Căn giữa với khoảng cách giữa tên nhóm và tổng điểm */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  margin-bottom: 20px; /* Khoảng cách dưới cùng */
+}
+
+.group-header h1 {
+  margin: 0; /* Bỏ khoảng cách mặc định trên dưới */
+}
+
+.group-header h3 {
+  margin: 0; /* Bỏ khoảng cách mặc định trên dưới */
+}
+
+/* Attendance List section */
+.report .attendance {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.report .attendance-list {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.report .table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+.report table thead tr {
+  color: #fff;
+  background: #1f8e8e; /* Đậm hơn một chút so với background của bảng */
+  text-align: left;
+  font-weight: bold;
+}
+
+.report .table th,
+.table td {
+  padding: 12px 15px;
+}
+
+.report .table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.report .table tbody tr:nth-of-type(odd) {
+  background: #ffffff62; /* Màu nền nhạt hơn */
+}
+
+.report .table tbody tr.active {
+  font-weight: bold;
+  color: #000000;
+}
+
+.report .table tbody tr:last-of-type {
+  border-bottom: 2px solid #4ad489;
+}
+
+.report .table button {
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #4ad489;
+}
+
+.report .table button:hover {
+  background: #4ad489;
+  color: #fff;
+  transition: 0.5rem;
+}
+
+/* Các kiểu cho bảng theo thứ hạng */
+.table.gold {
+  background-color: #ffd700; /* Màu vàng cho bảng hạng nhất */
+  border-left: 5px solid #ffd700; /* Viền vàng cho bảng hạng nhất */
+}
+
+.table.silver {
+  background-color: #c0c0c0; /* Màu bạc cho bảng hạng nhì */
+  border-left: 5px solid #c0c0c0; /* Viền bạc cho bảng hạng nhì */
+}
+
+.table.bronze {
+  background-color: #cd7f32; /* Màu đồng cho bảng hạng ba */
+  border-left: 5px solid #cd7f32; /* Viền đồng cho bảng hạng ba */
+}
+
+/* Icon styles */
+.icon {
+  margin-left: 10px;
+  font-size: 20px; /* Kích thước icon */
+}
+
+.table.gold .icon {
+  color: #ffd700; /* Màu vàng cho icon */
+}
+
+.table.silver .icon {
+  color: #c0c0c0; /* Màu bạc cho icon */
+}
+
+.table.bronze .icon {
+  color: #cd7f32; /* Màu đồng cho icon */
+}

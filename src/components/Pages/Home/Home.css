@@ -1,0 +1,13 @@
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Khoảng cách giữa các hàng */
+}
+
+.rank-group {
+  display: flex;
+  flex-wrap: wrap; /* Để đảm bảo không bị tràn khi có nhiều thẻ */
+  justify-content: center; /* Căn giữa các thẻ trong hàng */
+  gap: 15px; /* Khoảng cách giữa các thẻ trong cùng hạng */
+}
+

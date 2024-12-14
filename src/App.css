@@ -1,0 +1,20 @@
+.container {
+  display: flex; /* Đặt container thành flexbox */
+  height: 100vh; /* Chiều cao toàn màn hình */
+}
+
+.sidebar {
+  flex: 0 0 70px; /* Sidebar có chiều rộng cố định ban đầu */
+  transition: flex-basis 0.5s; /* Chuyển đổi mượt khi mở rộng */
+}
+
+.sidebar:hover {
+  flex: 0 0 280px; /* Sidebar mở rộng */
+}
+
+.main {
+  flex: 1; /* Chiếm toàn bộ không gian còn lại */
+  background: #f5f5f5;
+  padding: 20px; /* Khoảng cách nội dung */
+  overflow-y: auto; /* Thêm thanh cuộn nếu nội dung dài */
+}

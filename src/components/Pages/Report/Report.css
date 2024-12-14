@@ -1,0 +1,14 @@
+.groups-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Tạo 2 cột có chiều rộng bằng nhau */
+  gap: 20px; /* Khoảng cách giữa các nhóm */
+}
+
+.group-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-group {
+  margin-bottom: 20px; /* Khoảng cách dưới bảng */
+}

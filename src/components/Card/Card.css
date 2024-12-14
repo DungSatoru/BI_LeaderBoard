@@ -1,0 +1,77 @@
+.card {
+  width: 25%;
+  margin: 10px;
+  background: #B8E1FF;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  position: relative; /* Thêm để có thể sử dụng vị trí tuyệt đối cho icon */
+}
+
+.card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.card h4 {
+  text-transform: uppercase;
+}
+
+.card p {
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.d-flex div {
+  font-size: 0.9em;
+}
+
+.d-flex span {
+  font-weight: bold;
+}
+
+/* Icon xếp hạng ở góc trên bên phải */
+.rank-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+}
+
+/* Các biểu tượng xếp hạng */
+.rank-icon.gold {
+  color: #FFD700; /* Vàng */
+}
+
+.rank-icon.silver {
+  color: #C0C0C0; /* Bạc */
+}
+
+.rank-icon.bronze {
+  color: #CD7F32; /* Đồng */
+}
+
+
+.card.gold {
+  background: linear-gradient(135deg, #FFD700, #FFA500); /* Vàng */
+  color: #fff;
+}
+
+.card.silver {
+  background: linear-gradient(135deg, #C0C0C0, #A9A9A9); /* Bạc */
+  color: #fff;
+}
+
+.card.bronze {
+  background: linear-gradient(135deg, #CD7F32, #8B4513); /* Đồng */
+  color: #fff;
+}

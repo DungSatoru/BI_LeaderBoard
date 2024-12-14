@@ -1,0 +1,56 @@
+/*Attendance List serction  */
+.summary .attendance {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.summary .attendance-list {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.summary .table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+.summary table thead tr {
+  color: #fff;
+  background: #34af6d;
+  text-align: left;
+  font-weight: bold;
+}
+.summary .table th,
+.table td {
+  padding: 12px 15px;
+}
+.summary .table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+.summary .table tbody tr:nth-of-type(odd) {
+  background: #f3f3f3;
+}
+.summary .table tbody tr.active {
+  font-weight: bold;
+  color: #4ad489;
+}
+.summary .table tbody tr:last-of-type {
+  border-bottom: 2px solid #4ad489;
+}
+.summary .table button {
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #4ad489;
+}
+.summary .table button:hover {
+  background: #4ad489;
+  color: #fff;
+  transition: 0.5rem;
+}
