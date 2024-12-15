@@ -1,5 +1,6 @@
 const axios = require('axios');
-// const https = require('https');
+const fs = require('fs');
+const path = require('path');
 
 const baseUrl = 'https://sinhvien1.tlu.edu.vn';
 
@@ -44,7 +45,7 @@ const login = async (req, res, next) => {
 
 const getCurrentStudent = async (req, res, next) => {
     try {
-        const apiUrl = `${baseUrl}/education/api/users/getCurrentUser`;     
+        const apiUrl = `${baseUrl}/education/api/users/getCurrentUser`;
 
         const token = req.headers.authorization;
 
@@ -84,7 +85,7 @@ const getCurrentStudent = async (req, res, next) => {
 
 const getListMarkDetail = async (req, res, next) => {
     try {
-        const apiUrl = `${baseUrl}/education/api/studentsubjectmark/getListMarkDetailStudent`;     
+        const apiUrl = `${baseUrl}/education/api/studentsubjectmark/getListMarkDetailStudent`;
 
         const token = req.headers.authorization;
 
@@ -101,13 +102,13 @@ const getListMarkDetail = async (req, res, next) => {
         });
 
         const idsToFind = [354, 358];
-        const filteredData = response.data.filter(item => 
+        const filteredData = response.data.filter(item =>
             item.subject && idsToFind.includes(item.subject.id)
         );
 
         const result = filteredData.map(item => {
             const name = item.id === 354 ? 'Phân tích dữ liệu lớn' : 'Quản trị hệ thống thông tin'
-        
+
             return {
                 subject: name,
                 mark: item.mark,
@@ -117,7 +118,7 @@ const getListMarkDetail = async (req, res, next) => {
 
         res.status(200).json({
             message: 'Get list mark success',
-            data: response.data  
+            data: response.data
         });
     } catch (error) {
         res.status(error.response?.status || 500).json({
@@ -128,7 +129,7 @@ const getListMarkDetail = async (req, res, next) => {
 
 const getSummaryMark = async (req, res, next) => {
     try {
-        const apiUrl = `${baseUrl}/education/api/studentsummarymark/getbystudent`;     
+        const apiUrl = `${baseUrl}/education/api/studentsummarymark/getbystudent`;
 
         const token = req.headers.authorization;
 
@@ -146,6 +147,7 @@ const getSummaryMark = async (req, res, next) => {
 
         const data = response.data;
         const result = {
+            "uid": data['student']['studentCode'],
             "displayName": data['student']['displayName'],
             "username": data['student']['username'],
             "email": data['student']['email'],
@@ -161,6 +163,15 @@ const getSummaryMark = async (req, res, next) => {
             "gpa10": data['mark']
         };
 
+        // const isSaved = await saveToJson(result);
+        // if(!isSaved){
+        //     res.status(500).json({
+        //         message: 'Save data backup error',
+        //         data: []
+        //     });
+        //     return;
+        // }
+
         res.status(200).json({
             message: 'Get student info success',
             data: result
@@ -171,6 +182,42 @@ const getSummaryMark = async (req, res, next) => {
         });
     }
 };
+
+const saveToJson = async (data) => {
+    try {
+        const filePath = path.resolve(__dirname, '../data/backup.json');
+        // const dirPath = path.dirname(filePath);
+
+        if (!fs.existsSync(filePath)) {
+            await fs.promises.writeFile(filePath, JSON.stringify([], null, 2), 'utf8');
+        }
+
+        const fileContent = await fs.promises.readFile(filePath, 'utf8');
+        const dataList = JSON.parse(fileContent);
+
+        dataList.push(data);
+
+        await fs.promises.writeFile(filePath, JSON.stringify(dataList, null, 2), 'utf8');
+        // console.log(`Dữ liệu đã được lưu vào file ${filePath}`);
+        return true;
+    } catch (err) {
+        // console.error('Lỗi khi lưu file JSON:', err.message);
+        return false;
+    }
+}
+
+const isExisted = async (uid) => {
+    const filePath = path.resolve(__dirname, '../data/backup.json');
+
+    if (!fs.existsSync(filePath)) {
+        await fs.promises.writeFile(filePath, JSON.stringify([], null, 2), 'utf8');
+    }
+
+    const fileContent = await fs.promises.readFile(filePath, 'utf8');
+    const data = JSON.parse(fileContent);
+
+    return data.some(element => element.uid === uid);
+}
 
 module.exports = {
     login,

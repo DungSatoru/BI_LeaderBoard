@@ -1,12 +1,11 @@
 const axios = require('axios');
 
-// http://localhost:8088/api/v1/chart/121/data/
 const baseUrl = 'http://localhost:8088/api/v1';
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 // login
-const login = async () => {
+const getToken = async () => {
     try {
         const apiUrl = `${baseUrl}/security/login`;
 
@@ -32,7 +31,7 @@ const getDataSheet = async () => {
     try {
         const apiUrl = `${baseUrl}/chart/161/data/`;
 
-        const token = await login();
+        const token = await getToken();
 
         if (!token) {
             return res.status(400).json({
@@ -64,15 +63,29 @@ const getDataSheet = async () => {
 const leaderBoard = async (req, res, next) => {
     try {
         const data = await getDataSheet();
-        const result = data.map(item => ({
+        const isOrder = req.body.orderByScore;
+        let result = data.map(item => ({
             "no": item['STT'],
             "uid": item['Mã sinh viên'],
             "name": item['Họ'] + ' ' + item['Tên'],
             "class": item['Lớp'],
             "absences": item['Vắng'],
             "boardTimes": item['Phát biểu'],
-            "totalScore": 15 - parseInt(item['Vắng']) + parseInt(item['Phát biểu']),
+            "totalScore": item['Tổng điểm'],
+            // "totalScore": 15 - parseInt(item['Vắng']) + parseInt(item['Phát biểu']),
         }));
+
+        if(isOrder === true){
+            result.sort((a, b) => b.totalScore - a.totalScore);
+
+            result = result.map((item, index) => ({
+                top: index + 1,
+                ...item,
+            }));
+        
+            // Xoá thuộc tính "no"
+            result.forEach(item => delete item.no);
+        }
 
         res.status(200).json({
             message: 'Get info leader success',

@@ -1,0 +1,536 @@
+{
+    "message": "Get info leader success",
+    "data": [
+        {
+            "top": 1,
+            "uid": "2151163664",
+            "name": "Nguyễn Đức Anh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 2,
+            "uid": "2151163665",
+            "name": "Nguyễn Lê Tuấn Anh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 3,
+            "uid": "2151163668",
+            "name": "Nguyễn Ngọc Bách",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 4,
+            "uid": "2151163669",
+            "name": "Trương Quốc Bảo",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 5,
+            "uid": "2151163680",
+            "name": "Bùi Quang Đạo",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 6,
+            "uid": "2151160535",
+            "name": "Hạ Quang Dũng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 7,
+            "uid": "2151163676",
+            "name": "Vũ Minh Dũng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 8,
+            "uid": "2151160496",
+            "name": "Nguyễn Đăng Hoàng Giang",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 9,
+            "uid": "2151163683",
+            "name": "Đoàn Phương Hà",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 10,
+            "uid": "2151163689",
+            "name": "Triệu Thị Hậu",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 11,
+            "uid": "2151163691",
+            "name": "Lê Minh Hiếu",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 12,
+            "uid": "2151160501",
+            "name": "Nguyễn Trung Hiếu",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 13,
+            "uid": "2151163692",
+            "name": "Trần Minh Hiếu",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 14,
+            "uid": "2151160497",
+            "name": "Nguyễn Văn Hùng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 15,
+            "uid": "2151163696",
+            "name": "Phạm Thị Ánh Hường",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 16,
+            "uid": "2151163702",
+            "name": "Tào Hồng Lê",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 17,
+            "uid": "2151160504",
+            "name": "Nguyễn Thành Long",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 18,
+            "uid": "2151160519",
+            "name": "Nguyễn Phương Mai",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 19,
+            "uid": "2151160509",
+            "name": "Đồng Đức Mạnh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 20,
+            "uid": "2151163708",
+            "name": "Phạm Nhật Minh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 21,
+            "uid": "2151160531",
+            "name": "Đỗ Hoài Nam",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 22,
+            "uid": "2151163709",
+            "name": "Nguyễn Tuấn Ngọc",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 23,
+            "uid": "2151163710",
+            "name": "Phan Lan Nhi",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 24,
+            "uid": "2151163716",
+            "name": "Đinh Hoàng Quang",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 25,
+            "uid": "2151163718",
+            "name": "Phạm Văn Quý",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 26,
+            "uid": "2151160489",
+            "name": "Vũ Văn Quý",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 27,
+            "uid": "2151163722",
+            "name": "Đàm Khắc Thái",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 28,
+            "uid": "2151163726",
+            "name": "Phạm Quang Thắng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 29,
+            "uid": "2151163724",
+            "name": "Lê Quang Thanh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 30,
+            "uid": "2151160499",
+            "name": "Đỗ Hữu Thịnh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 31,
+            "uid": "2151163731",
+            "name": "Đỗ Thị Thương",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 32,
+            "uid": "2251162175",
+            "name": "NGUYỄN HUY TỎA",
+            "class": "64HTTT3",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 33,
+            "uid": "2151163737",
+            "name": "Lê Đình Tú",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 34,
+            "uid": "2151163738",
+            "name": "Đỗ Hữu Tuấn",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 35,
+            "uid": "2151163742",
+            "name": "Nguyễn Thị Hà Vi",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 3,
+            "totalScore": 13
+        },
+        {
+            "top": 36,
+            "uid": "2151163671",
+            "name": "Dương Xuân Cừ",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 37,
+            "uid": "2151163681",
+            "name": "Trịnh Thanh Đoan",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 38,
+            "uid": "2151163677",
+            "name": "Lê Mạnh Duy",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 39,
+            "uid": "2151163685",
+            "name": "Nguyễn Nam Hải",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 40,
+            "uid": "2251162002",
+            "name": "NGUYỄN MINH HIẾU",
+            "class": "64HTTT4",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 41,
+            "uid": "2151163694",
+            "name": "Đỗ Việt Hùng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 42,
+            "uid": "2151163695",
+            "name": "Nguyễn Thành Hưng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 43,
+            "uid": "2151163700",
+            "name": "Phùng Bảo Lâm",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 44,
+            "uid": "2151163705",
+            "name": "Lê Thị Lý",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 45,
+            "uid": "2151163707",
+            "name": "Nguyễn Đức Minh",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 46,
+            "uid": "2151160525",
+            "name": "Nguyễn Văn Nam",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 47,
+            "uid": "2151163711",
+            "name": "Nguyễn Thị Hồng Nhung",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 48,
+            "uid": "2151163713",
+            "name": "Đào Hải Phúc",
+            "class": "63HTTT1",
+            "absences": 1,
+            "boardTimes": 3,
+            "totalScore": 12
+        },
+        {
+            "top": 49,
+            "uid": "2151160493",
+            "name": "Lê Hải Quang",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 50,
+            "uid": "2151160506",
+            "name": "Lê Quang Tâm",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 51,
+            "uid": "2151163727",
+            "name": "Trần Đức Thắng",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 52,
+            "uid": "2151163729",
+            "name": "Nguyễn Thị Thơm",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 53,
+            "uid": "2151163735",
+            "name": "Nguyễn Thị Kiều Trang",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 54,
+            "uid": "2151163739",
+            "name": "Đặng Anh Tuấn",
+            "class": "63HTTT1",
+            "absences": 0,
+            "boardTimes": 2,
+            "totalScore": 12
+        },
+        {
+            "top": 55,
+            "uid": "2151160524",
+            "name": "Nguyễn Tất Đạt",
+            "class": "63HTTT1",
+            "absences": 1,
+            "boardTimes": 2,
+            "totalScore": 11
+        },
+        {
+            "top": 56,
+            "uid": "2151160512",
+            "name": "Nguyễn Năng Vũ Hùng",
+            "class": "63HTTT1",
+            "absences": 1,
+            "boardTimes": 2,
+            "totalScore": 11
+        },
+        {
+            "top": 57,
+            "uid": "2151160530",
+            "name": "Phạm Quỳnh Anh",
+            "class": "63HTTT1",
+            "absences": 1,
+            "boardTimes": 1,
+            "totalScore": 10
+        },
+        {
+            "top": 58,
+            "uid": "2151163697",
+            "name": "Dương Nam Khánh",
+            "class": "63HTTT1",
+            "absences": 2,
+            "boardTimes": 2,
+            "totalScore": 10
+        },
+        {
+            "top": 59,
+            "uid": "2251162190",
+            "name": "LÊ VĂN TRUNG",
+            "class": "64HTTT3",
+            "absences": 2,
+            "boardTimes": 2,
+            "totalScore": 10
+        }
+    ]
+}

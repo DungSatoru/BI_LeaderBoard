@@ -1,0 +1,32 @@
+[
+  {
+    "uid": "2151163738",
+    "displayName": "Đỗ Hữu Tuấn",
+    "email": null,
+    "birthPlace": "Xã Đông Kết, huyện Khoái Châu, tỉnh Hưng Yên",
+    "birthDate": "21/06/2003",
+    "gender": "M",
+    "phoneNumber": "0393490572",
+    "idNumber": "033203003142",
+    "speciality": "Hệ thống thông tin",
+    "department": "Khoa Công nghệ thông tin",
+    "courseyear": "K63",
+    "gpa4": 3.42,
+    "gpa10": 8.36
+  },
+  {
+    "uid": "2151160499",
+    "displayName": "Đỗ Hữu Thịnh",
+    "email": null,
+    "birthPlace": "Mỹ Bằng - Yên Sơn - Tuyên Quang",
+    "birthDate": "19/12/2003",
+    "gender": "M",
+    "phoneNumber": "0395289830",
+    "idNumber": "008203002574",
+    "speciality": "Hệ thống thông tin",
+    "department": "Khoa Công nghệ thông tin",
+    "courseyear": "K63",
+    "gpa4": 2.66,
+    "gpa10": 7.26
+  }
+]
