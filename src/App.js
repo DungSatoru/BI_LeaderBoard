@@ -8,26 +8,25 @@ import Report from "./components/Pages/Report/Report";
 // import Settings from "./components/pages/Settings";
 // import Help from "./components/pages/Help";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Login from "./components/Pages/Login/Login";
 
 const App = () => {
   return (
-    <Router>
-      <div className="container">
-        <Sidebar />
+    <div className="container">
+      <Sidebar />
 
-        <div className="main">
-          {/* Các Routes */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/summary" element={<Summary />} />
-            <Route path="/report" element={<Report />} />
-            {/* <Route path="/dashboard" element={<Dashboard sampleData={sampleData} />} /> */}
-            {/* <Route path="/settings" element={<Settings />} /> */}
-            {/* <Route path="/help" element={<Help />} /> */}
-          </Routes>
-        </div>
+      <div className="main">
+        {/* Các Routes */}
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/summary" element={<Summary />} />
+          <Route path="/report" element={<Report />} />
+          {/* <Route path="/dashboard" element={<Dashboard sampleData={sampleData} />} /> */}
+          {/* <Route path="/settings" element={<Settings />} /> */}
+          {/* <Route path="/help" element={<Help />} /> */}
+        </Routes>
       </div>
-    </Router>
+    </div>
   );
 };
 

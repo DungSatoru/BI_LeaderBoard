@@ -13,6 +13,7 @@ const Home = () => {
   const [studentsGold, setStudentsGold] = useState([]);
   const [studentsSilver, setStudentsSilver] = useState([]);
   const [studentsBronze, setStudentsBronze] = useState([]);
+  
 
   useEffect(() => {
     // Gán dữ liệu JSON đã sắp xếp
