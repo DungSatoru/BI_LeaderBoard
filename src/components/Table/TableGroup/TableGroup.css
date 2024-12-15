@@ -37,9 +37,9 @@
   border-radius: 5px 5px 0 0;
 }
 
-.report table thead tr {
+.report table thead {
   color: #fff;
-  background: #1f8e8e; /* Đậm hơn một chút so với background của bảng */
+  background: #9bd18c; /* Đậm hơn một chút so với background của bảng */
   text-align: left;
   font-weight: bold;
 }
@@ -81,35 +81,38 @@
 }
 
 /* Các kiểu cho bảng theo thứ hạng */
-.table.gold {
+.table.gold thead{
   background-color: #ffd700; /* Màu vàng cho bảng hạng nhất */
   border-left: 5px solid #ffd700; /* Viền vàng cho bảng hạng nhất */
 }
 
-.table.silver {
+.table.silver thead{
   background-color: #c0c0c0; /* Màu bạc cho bảng hạng nhì */
   border-left: 5px solid #c0c0c0; /* Viền bạc cho bảng hạng nhì */
 }
 
-.table.bronze {
+.table.bronze thead{
   background-color: #cd7f32; /* Màu đồng cho bảng hạng ba */
   border-left: 5px solid #cd7f32; /* Viền đồng cho bảng hạng ba */
 }
 
 /* Icon styles */
-.icon {
-  margin-left: 10px;
-  font-size: 20px; /* Kích thước icon */
+
+/* Icon styles */
+.fa-trophy.gold {
+  background: linear-gradient(45deg, #FFD700, #FFEA85);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.table.gold .icon {
-  color: #ffd700; /* Màu vàng cho icon */
+.fa-trophy.silver {
+  background: linear-gradient(45deg, #C0C0C0, #E0E0E0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.table.silver .icon {
-  color: #c0c0c0; /* Màu bạc cho icon */
-}
-
-.table.bronze .icon {
-  color: #cd7f32; /* Màu đồng cho icon */
+.fa-trophy.bronze {
+  background: linear-gradient(45deg, #CD7F32, #E3A56D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

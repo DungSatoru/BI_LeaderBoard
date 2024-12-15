@@ -1,77 +1,116 @@
-.card {
-  width: 25%;
-  margin: 10px;
-  background: #B8E1FF;
-  text-align: center;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-  position: relative; /* Thêm để có thể sử dụng vị trí tuyệt đối cho icon */
-}
-
-.card img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-}
-
-.card h4 {
-  text-transform: uppercase;
-}
-
-.card p {
-  font-size: 12px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.d-flex {
+.CardList {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+  justify-content: space-around;
+  padding: 2rem;
+  /* Thẻ card sẽ có các màu viền và gradient tùy theo hạng */
+  .card {
+    background-color: var(--card);
+    padding: 0 10px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
+    background: linear-gradient(
+      135deg,
+      var(--gradient-start),
+      var(--gradient-end)
+    ); /* Gradient vàng */
+  }
 
-.d-flex div {
-  font-size: 0.9em;
-}
+  /* Card cho hạng nhất */
+  .card.gold {
+    border: 4px solid var(--gold); /* Viền vàng cho hạng nhất */
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+  }
 
-.d-flex span {
-  font-weight: bold;
-}
+  /* Card cho hạng nhì */
+  .card.silver {
+    border: 4px solid var(--silver); /* Viền bạc cho hạng nhì */
+    background: linear-gradient(135deg, #c0c0c0, #a9a9a9);
+  }
 
-/* Icon xếp hạng ở góc trên bên phải */
-.rank-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 30px;
-}
+  /* Card cho hạng ba */
+  .card.bronze {
+    border: 4px solid var(--bronze); /* Viền đồng cho hạng ba */
+    background: linear-gradient(135deg, #cd7f32, #8b4513);
+  }
 
-/* Các biểu tượng xếp hạng */
-.rank-icon.gold {
-  color: #FFD700; /* Vàng */
-}
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.rank-icon.silver {
-  color: #C0C0C0; /* Bạc */
-}
+  .header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
 
-.rank-icon.bronze {
-  color: #CD7F32; /* Đồng */
-}
+  .medal-wrapper img {
+    width: 100px;
+    height: auto;
+  }
 
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
 
-.card.gold {
-  background: linear-gradient(135deg, #FFD700, #FFA500); /* Vàng */
-  color: #fff;
-}
+  .grid div {
+    padding: 0.5rem;
+  }
 
-.card.silver {
-  background: linear-gradient(135deg, #C0C0C0, #A9A9A9); /* Bạc */
-  color: #fff;
-}
+  .player-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    color: var(--foreground);
+    text-align: left;
+  }
 
-.card.bronze {
-  background: linear-gradient(135deg, #CD7F32, #8B4513); /* Đồng */
-  color: #fff;
+  .player-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+
+  .player-list .student-name,
+  .player-list .student-id,
+  .player-list .student-class {
+    flex: 1;
+    text-align: center;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+  }
+
+  .stat img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .stat span {
+    font-weight: bold;
+    color: var(--foreground);
+  }
+
+  .title,
+  .player-list,
+  .stats {
+    color: white;
+  }
 }

@@ -1,0 +1,81 @@
+/* src/Login.css */
+
+/* Phần nền ảnh */
+#Login {
+  display: flex;
+  height: 100vh;
+}
+
+#Login .login-bg {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  color: white;
+}
+
+#Login .login-bg h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Phần form login */
+#Login .login-form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+#Login .login-form {
+  background-color: var(--card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+#Login .login-form h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--foreground);
+}
+
+#Login .login-form p {
+  color: var(--muted);
+}
+
+#Login .input-field {
+  margin-bottom: 1rem;
+}
+
+#Login .input-field label {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+#Login .input-field input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--foreground);
+}
+
+#Login button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--card-foreground);
+  border: none;
+  transition: background-color 0.3s;
+}
+
+#Login button:hover {
+  background-color: rgba(52, 144, 220, 0.8);
+}

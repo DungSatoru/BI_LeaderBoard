@@ -1,15 +1,23 @@
 import React from "react";
 import "./TableGroup.css";
 
-function TableGroup({ data, groupName, totalGroupScore, groupClass, icon }) {
+function TableGroup({
+  data,
+  groupName,
+  totalGroupScore,
+  groupClass,
+  icon,
+  rank,
+}) {
   return (
     <section className="attendance">
       <div className="attendance-list">
         {/* Bọc tên nhóm và tổng điểm vào một div */}
         <div className="group-header">
           <h1>{groupName}</h1> {/* Hiển thị tên nhóm */}
+          <h3>Tổng điểm: {totalGroupScore}</h3>
           <h3>
-            Tổng điểm: {totalGroupScore}
+            Hạng {rank} &nbsp;
             {icon} {/* Thêm icon vào sau tổng điểm */}
           </h3>
         </div>
@@ -41,6 +49,5 @@ function TableGroup({ data, groupName, totalGroupScore, groupClass, icon }) {
     </section>
   );
 }
-
 
 export default TableGroup;
