@@ -1,0 +1,70 @@
+/* Đặt nền màu sáng cho toàn bộ trang */
+body {
+  background-color: #f4f7fc;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Trung tâm trang với layout */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Tạo khung card cho thông tin cá nhân */
+.profile-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
+}
+
+/* Tiêu đề trang */
+.profile-title {
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Căn chỉnh các phần tử trong thẻ card */
+.profile-info {
+  margin-top: 10px;
+}
+
+/* Định dạng mỗi mục thông tin */
+.profile-item {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Tô đậm nhãn và thay đổi màu sắc */
+.label {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Làm nổi bật trường thông tin */
+.profile-item span {
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Định dạng dành cho các trường thông tin */
+.profile-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Thêm khoảng cách cuối cùng */
+.profile-item:last-child {
+  border-bottom: none;
+}

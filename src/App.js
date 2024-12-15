@@ -8,7 +8,7 @@ import Report from "./components/Pages/Report/Report";
 // import Settings from "./components/pages/Settings";
 // import Help from "./components/pages/Help";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Login from "./components/Pages/Login/Login";
+import Profile from "./components/Pages/Profile/Profile";
 
 const App = () => {
   return (
@@ -21,6 +21,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/summary" element={<Summary />} />
           <Route path="/report" element={<Report />} />
+          <Route path="/profile" element={<Profile />} />
           {/* <Route path="/dashboard" element={<Dashboard sampleData={sampleData} />} /> */}
           {/* <Route path="/settings" element={<Settings />} /> */}
           {/* <Route path="/help" element={<Help />} /> */}

@@ -27,7 +27,7 @@ function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link to="/dashboard" className="text-decoration-none">
+          <Link to="/profile" className="text-decoration-none">
             <i className="fas fa-user"></i> Thông tin cá nhân
           </Link>
         </li>

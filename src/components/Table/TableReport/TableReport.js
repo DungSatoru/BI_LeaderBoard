@@ -21,7 +21,7 @@ function TableReport({ data }) {
           <tbody>
             {data.map((item, index) => (
               <tr key={index} className={item.absences === "x" ? "active" : ""}>
-                <td>{index + 1}</td>
+                <td>{item.no}</td>
                 <td>{item.uid}</td>
                 <td>{item.name}</td>
                 <td>{item.class}</td>

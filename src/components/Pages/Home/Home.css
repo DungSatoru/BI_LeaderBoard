@@ -11,7 +11,9 @@
   width: 100%;
   max-width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  min-height: 300px; /* Đặt chiều cao cố định cho tất cả các thẻ */
+  min-height: 300px; /* Chiều cao tối thiểu */
+  max-height: 400px; /* Chiều cao tối đa */
+  overflow: hidden; /* Ẩn phần nội dung vượt quá */
 }
 
 .card.gold {
@@ -35,6 +37,16 @@
   transform: translateY(1rem); /* Đẩy xuống nhiều hơn */
 }
 
+/* Áp dụng cho nội dung bên trong card */
+.card .card-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Số dòng tối đa, thay đổi theo nhu cầu */
+  -webkit-box-orient: vertical;
+  overflow: hidden; /* Ẩn phần nội dung vượt quá */
+  text-overflow: ellipsis; /* Thêm dấu "..." khi bị cắt */
+}
+
+/* Kiểu cho các phần tử bên trong leaderboard */
 .LeaderboardRankList {
   max-width: 900px;
   margin: 20px auto;
@@ -51,7 +63,7 @@
     margin-right: 1rem;
   }
 
-  .name{
+  .name {
     font-size: 1.125rem;
     font-weight: bold;
   }
@@ -93,7 +105,6 @@
     font-size: 16px;
     color: #333;
     font-weight: bold;
-    
   }
 
   .leaderboard-item .points {
