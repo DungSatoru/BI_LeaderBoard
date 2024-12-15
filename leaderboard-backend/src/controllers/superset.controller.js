@@ -63,13 +63,10 @@ const getDataSheet = async () => {
 const leaderBoard = async (req, res, next) => {
     try {
         const data = await getDataSheet();
-        const isOrder = req.body.orderByScore;
-
-        // Mẫu body request
-        // {
-        //     "orderByScore": true
-        // }
-
+        // const isOrder = req.body.orderByScore;
+        // const { orderByScore } = req.query;
+        const isOrder = req.query.orderByScore === "true";
+        
         let result = data.map(item => ({
             "no": item['STT'],
             "uid": item['Mã sinh viên'],
