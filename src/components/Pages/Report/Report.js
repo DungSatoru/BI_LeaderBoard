@@ -40,7 +40,7 @@ const Report = () => {
   return (
     <section className="report">
       <div className="main-top">
-        <h1>Báo cáo điểm</h1>
+        <h1 className="fw-bold">BÁO CÁO ĐIỂM</h1>
       </div>
       <div className="groups-container">
         {groups.map((groupIds, index) => {

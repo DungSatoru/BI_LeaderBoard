@@ -1,4 +1,4 @@
-.container {
+.container-wrapper {
   display: flex; /* Đặt container thành flexbox */
   height: 100vh; /* Chiều cao toàn màn hình */
 }
@@ -14,7 +14,8 @@
 
 .main {
   flex: 1; /* Chiếm toàn bộ không gian còn lại */
-  background: #f5f5f5;
   padding: 20px; /* Khoảng cách nội dung */
   overflow-y: auto; /* Thêm thanh cuộn nếu nội dung dài */
 }
+
+

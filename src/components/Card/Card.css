@@ -1,116 +1,26 @@
-.CardList {
+/* Áp dụng các biến màu vào card */
+.card {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.medal-wrapper img {
+  max-width: 80px;
+  height: auto;
+}
+
+.list-group-item {
+  background-color: transparent;
+  color: var(--list-text);
   display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-  /* Thẻ card sẽ có các màu viền và gradient tùy theo hạng */
-  .card {
-    background-color: var(--card);
-    padding: 0 10px;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 360px;
-    background: linear-gradient(
-      135deg,
-      var(--gradient-start),
-      var(--gradient-end)
-    ); /* Gradient vàng */
-  }
+}
 
-  /* Card cho hạng nhất */
-  .card.gold {
-    border: 4px solid var(--gold); /* Viền vàng cho hạng nhất */
-    background: linear-gradient(135deg, #ffd700, #ffa500);
-  }
+.card-body {
+  max-height: 300px;
+  overflow-y: auto; /* Cho phép cuộn dọc khi nội dung vượt quá chiều cao tối đa */
+}
 
-  /* Card cho hạng nhì */
-  .card.silver {
-    border: 4px solid var(--silver); /* Viền bạc cho hạng nhì */
-    background: linear-gradient(135deg, #c0c0c0, #a9a9a9);
-  }
-
-  /* Card cho hạng ba */
-  .card.bronze {
-    border: 4px solid var(--bronze); /* Viền đồng cho hạng ba */
-    background: linear-gradient(135deg, #cd7f32, #8b4513);
-  }
-
-  .card-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .header-content {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .medal-wrapper img {
-    width: 100px;
-    height: auto;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .grid div {
-    padding: 0.5rem;
-  }
-
-  .player-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-weight: bold;
-    color: var(--foreground);
-    text-align: left;
-  }
-
-  .player-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.25rem 0;
-    font-size: 0.9rem;
-  }
-
-  .player-list .student-name,
-  .player-list .student-id,
-  .player-list .student-class {
-    flex: 1;
-    text-align: center;
-  }
-
-  .stats {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .stat {
-    display: flex;
-    align-items: center;
-  }
-
-  .stat img {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.5rem;
-  }
-
-  .stat span {
-    font-weight: bold;
-    color: var(--foreground);
-  }
-
-  .title,
-  .player-list,
-  .stats {
-    color: white;
-  }
+/* Ẩn thanh cuộn */
+.card-body::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn trên webkit browsers (Chrome, Safari, Edge) */
 }
