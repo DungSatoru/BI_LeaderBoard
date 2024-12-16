@@ -21,9 +21,7 @@ const getToken = async () => {
 
         return response.data['access_token']
     } catch (error) {
-        res.status(error.response?.status || 500).json({
-            message: error.message,
-        });
+        return null;
     }
 };
 
@@ -34,9 +32,7 @@ const getDataSheet = async () => {
         const token = await getToken();
 
         if (!token) {
-            return res.status(400).json({
-                message: 'Authorization token is required',
-            });
+            return [];
         }
 
         const response = await axios.get(apiUrl, {
