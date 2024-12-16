@@ -9,13 +9,19 @@ const Dashboard = () => {
       </div>
       <div className="main-body">
         <div>
-          <iframe></iframe>
+          <iframe width="100%" height="400px" seamless frameBorder="0" scrolling="no"
+            src="http://localhost:8088/explore/?slice_id=239&form_data=%7B%22slice_id%22%3A%20239%7D&standalone=true">
+          </iframe>
         </div>
         <div>
-          <iframe></iframe>
+          <iframe width="100%" height="400px" seamless frameBorder="0" scrolling="no"
+            src="http://localhost:8088/explore/?slice_id=240&form_data=%7B%22slice_id%22%3A%20240%7D&standalone=true">
+          </iframe>
         </div>
         <div>
-          <iframe></iframe>
+          <iframe width="100%" height="400px" seamless frameBorder="0" scrolling="no"
+            src="http://localhost:8088/explore/?slice_id=241&form_data=%7B%22slice_id%22%3A%20241%7D&standalone=true">
+          </iframe>
         </div>
       </div>
     </section>

@@ -17,27 +17,27 @@ const Ranking = () => {
   useEffect(() => {
     const fetchData = async () => {
       // LẤY DỮ LIỆU TỪ API
-      // const response = await fetch(
-      //   "http://localhost:3010/api/superset/leaderBoard?orderByScore=true", // Thêm tham số query string vào URL
-      //   {
-      //     method: "GET", // Sử dụng GET
-      //     headers: {
-      //       "Content-Type": "application/json", // Đảm bảo content-type là application/json
-      //     },
-      //   }
-      // );
+      const response = await fetch(
+        "http://localhost:3010/api/superset/leaderBoard?orderByScore=true", // Thêm tham số query string vào URL
+        {
+          method: "GET", // Sử dụng GET
+          headers: {
+            "Content-Type": "application/json", // Đảm bảo content-type là application/json
+          },
+        }
+      );
 
-      // if (response.ok) {
-      //   const data = await response.json();
-      //   console.log(data);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
 
-      //   setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
-      // } else {
-      //   console.error("Error fetching data");
-      // }
+        setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
+      } else {
+        console.error("Error fetching data");
+      }
 
       // LẤY DỮ LIỆU TỪ FILE JSON
-      setStudentsData(sampleData.data);
+      // setStudentsData(sampleData.data);
     };
 
     fetchData(); // Gọi API để lấy dữ liệu
