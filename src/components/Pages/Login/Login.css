@@ -1,6 +1,6 @@
 /* src/Login.css */
 
-/* Phần nền ảnh */
+/* Nền login */
 #Login {
   display: flex;
   height: 100vh;
@@ -10,16 +10,19 @@
   flex: 1;
   background-size: cover;
   background-position: center;
-  padding: 2rem;
-  color: white;
-}
-
-#Login .login-bg h2 {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Phần form login */
+#Login .login-bg h2 {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Form login */
 #Login .login-form-container {
   flex: 1;
   display: flex;
@@ -29,53 +32,67 @@
 }
 
 #Login .login-form {
-  background-color: var(--card);
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: 100%;
+  padding: 2rem;
+  background-color: #f8f9fa; /* Bootstrap light background */
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #Login .login-form h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--foreground);
+  text-align: center;
+  color: #333;
 }
 
 #Login .login-form p {
-  color: var(--muted);
-}
-
-#Login .input-field {
-  margin-bottom: 1rem;
+  text-align: center;
+  color: #6c757d; /* Bootstrap muted color */
 }
 
 #Login .input-field label {
-  display: block;
-  color: var(--muted);
+  color: #6c757d;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 #Login .input-field input {
-  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
   padding: 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border);
-  background-color: var(--card);
-  color: var(--foreground);
+  color: #495057;
 }
 
 #Login button {
   width: 100%;
   padding: 0.75rem;
-  border-radius: 0.5rem;
-  background-color: var(--primary);
-  color: var(--card-foreground);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #0d6efd; /* Bootstrap primary color */
+  color: #fff;
   border: none;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out;
 }
 
 #Login button:hover {
-  background-color: rgba(52, 144, 220, 0.8);
+  background-color: #0056b3; /* Darker primary color */
+}
+
+/* Spinner */
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #0d6efd; /* Bootstrap primary color */
 }

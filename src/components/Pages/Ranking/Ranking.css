@@ -1,0 +1,109 @@
+/* General Card Styles */
+.CardList {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-height: 300px; /* Chiều cao tối thiểu */
+}
+
+.card.gold {
+  border: 4px solid var(--gold);
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  z-index: 3; /* Hạng Nhất cao nhất */
+  transform: translateY(-1rem); /* Đẩy lên cao hơn */
+}
+
+.card.silver {
+  border: 4px solid var(--silver);
+  background: linear-gradient(135deg, #c0c0c0, #a9a9a9);
+  z-index: 2; /* Hạng Nhì thấp hơn hạng Nhất */
+  transform: translateY(0.5rem); /* Đẩy xuống một chút */
+}
+
+.card.bronze {
+  border: 4px solid var(--bronze);
+  background: linear-gradient(135deg, #cd7f32, #8b4513);
+  z-index: 1; /* Hạng Ba thấp nhất */
+  transform: translateY(1rem); /* Đẩy xuống nhiều hơn */
+}
+
+/* Áp dụng cho nội dung bên trong card */
+.card .card-body {
+  max-height: 300px;
+  overflow-y: scroll; /* Cho phép cuộn dọc */
+}
+
+.card .card-body::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn trên webkit browsers (Chrome, Safari, Edge) */
+}
+
+/* Các phần tử bên trong leaderboard */
+.LeaderboardRankList {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.LeaderboardRankList h1.title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.LeaderboardRankList .description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.leaderboard {
+  margin-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.leaderboard-item .rank {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.leaderboard-item .name,
+.leaderboard-item .class {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+.leaderboard-item .points {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Avatar */
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  margin-right: 1rem;
+}

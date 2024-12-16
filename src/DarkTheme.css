@@ -1,0 +1,46 @@
+:root {
+  /* Light Theme Variables */
+  --background: #f5f5f5; /* Màu nền chính */
+  --background-secondary: #e9ecef; /* Màu nền phụ */
+  --background-card: #fff; /* Màu nền card */
+  --foreground: #222222; /* Màu chữ chính */
+  --foreground-secondary: #6c757d; /* Màu chữ phụ */
+  --foreground-hover: #fff; /* Màu chữ khi hover */
+  --hover: #007bff; /* Màu nền khi hover */
+  --border: #ddd; /* Màu viền */
+  --shadow: rgba(0, 0, 0, 0.1); /* Đổ bóng */
+  --table: #f8f9fa; /* Màu nền bảng */
+  --table-row: #e9ecef; /* Màu nền hàng bảng */
+  --primary: #007bff; /* Màu chính */
+  --success: #28a745; /* Màu thành công */
+  --error: #dc3545; /* Màu lỗi */
+  --warning: #ffc107; /* Màu cảnh báo */
+  --muted: #6c757d; /* Màu nhạt */
+}
+
+.dark {
+  /* Dark Theme Variables */
+  --background: #222; /* Màu nền chính */
+  --background-secondary: #333; /* Màu nền phụ */
+  --background-card: #444; /* Màu nền card */
+  --foreground: #fff; /* Màu chữ chính */
+  --foreground-secondary: #bfbfbf; /* Màu chữ phụ */
+  --foreground-hover: #fff; /* Màu chữ khi hover */
+  --hover: #4a90e2; /* Màu nền khi hover */
+  --border: #555; /* Màu viền */
+  --shadow: rgba(0, 0, 0, 0.5); /* Đổ bóng */
+  --table: #444; /* Màu nền bảng */
+  --table-row: #555; /* Màu nền hàng bảng */
+  --primary: #4a90e2; /* Màu chính */
+  --success: #3fa34d; /* Màu thành công */
+  --error: #e57373; /* Màu lỗi */
+  --warning: #ffb74d; /* Màu cảnh báo */
+  --muted: #888; /* Màu nhạt */
+}
+
+/* Áp dụng màu nền và chữ mặc định */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
+}

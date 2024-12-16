@@ -1,56 +1,65 @@
-/*Attendance List serction  */
+/* Attendance List Section */
 .summary .attendance {
   margin-top: 20px;
   text-transform: capitalize;
 }
+
 .summary .attendance-list {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background: #fff;
+  background: var(--background-card); /* Sử dụng màu nền của card */
   border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 35px var(--shadow); /* Sử dụng màu bóng */
 }
+
 .summary .table {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 15px;
   min-width: 100%;
-  overflow: hidden;
   border-radius: 5px 5px 0 0;
 }
+
 .summary table thead tr {
-  color: #fff;
-  background: #34af6d;
+  color: var(--foreground); /* Màu chữ chính */
+  background: var(--primary); /* Màu nền header */
   text-align: left;
   font-weight: bold;
 }
+
 .summary .table th,
-.table td {
+.summary .table td {
   padding: 12px 15px;
 }
+
 .summary .table tbody tr {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border); /* Màu viền */
 }
+
 .summary .table tbody tr:nth-of-type(odd) {
-  background: #f3f3f3;
+  background: var(--table-row); /* Màu nền hàng bảng */
 }
+
 .summary .table tbody tr.active {
   font-weight: bold;
-  color: #4ad489;
+  color: var(--success); /* Màu thành công cho hàng active */
 }
+
 .summary .table tbody tr:last-of-type {
-  border-bottom: 2px solid #4ad489;
+  border-bottom: 2px solid var(--success); /* Màu viền dưới cho dòng cuối cùng */
 }
+
 .summary .table button {
   padding: 6px 20px;
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
-  border: 1px solid #4ad489;
+  border: 1px solid var(--primary); /* Màu viền của button */
 }
+
 .summary .table button:hover {
-  background: #4ad489;
-  color: #fff;
-  transition: 0.5rem;
+  background: var(--primary); /* Màu nền khi hover */
+  color: var(--foreground); /* Màu chữ khi hover */
+  transition: 0.3s;
 }

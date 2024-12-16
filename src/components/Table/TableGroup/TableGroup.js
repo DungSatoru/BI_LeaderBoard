@@ -13,13 +13,13 @@ function TableGroup({
     <section className="attendance">
       <div className="attendance-list">
         {/* Bọc tên nhóm và tổng điểm vào một div */}
-        <div className="group-header">
-          <h1>{groupName}</h1> {/* Hiển thị tên nhóm */}
-          <h3>Tổng điểm: {totalGroupScore}</h3>
-          <h3>
+        <div className="group-header d-flex align-items-center justify-content-between">
+          <h3>{groupName}</h3> {/* Hiển thị tên nhóm */}
+          <div>Tổng điểm: {totalGroupScore}</div>
+          <div>
             Hạng {rank} &nbsp;
             {icon} {/* Thêm icon vào sau tổng điểm */}
-          </h3>
+          </div>
         </div>
 
         {/* Áp dụng lớp màu cho bảng */}

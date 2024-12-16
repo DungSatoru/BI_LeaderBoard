@@ -14,16 +14,21 @@ function Sidebar() {
 
   return (
     <nav>
-      <ul>
+      <ul className="list-unstyled">
         <li>
-          <a href="#" className="logo">
+          <Link to="/dashboard" className="logo text-decoration-none">
             <img src="/logo192.png" alt="Logo" />
-            <span className="nav-item">DashBoard</span>
-          </a>
+            <span className="nav-item">TỔNG QUAN</span>
+          </Link>
         </li>
         <li>
           <Link to="/home" className="text-decoration-none">
             <i className="fas fa-home"></i> Trang chủ
+          </Link>
+        </li>
+        <li>
+          <Link to="/ranking" className="text-decoration-none">
+            <i className="fas bi bi-stars"></i> Bảng xếp hạng
           </Link>
         </li>
         <li>

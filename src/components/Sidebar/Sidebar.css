@@ -1,9 +1,7 @@
 nav {
   position: sticky;
   height: 100vh;
-  background: #fff;
   width: 70px;
-  background: #fff;
   overflow: hidden;
   transition: 0.5s;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -38,10 +36,12 @@ a {
   width: 280px;
   padding: 12px 8px;
   padding-left: 0;
+  font-weight: bold;
 }
-nav .fas {
+nav .fas
+{
   position: relative;
-  width: 70px;
+  width: 70px !important;
   font-size: 20px;
   text-align: center;
 }
@@ -51,7 +51,8 @@ nav .fas {
   margin-left: 10px;
 }
 a:hover {
-  background: #eee;
+  background: var(--hover);
+  color: var(--foreground-hover);
 }
 .logout {
   position: absolute;
