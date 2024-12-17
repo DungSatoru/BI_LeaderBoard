@@ -1,91 +1,46 @@
-
-/* Trung tâm trang với layout */
-.profile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
+.circle-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
 }
 
-/* Tạo khung card cho thông tin cá nhân */
-.profile-card {
-  background-color: var(--background-card);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  max-width: 100%;
+.circular-chart {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
 }
 
-/* Tiêu đề trang */
-.profile-title {
-  text-align: center;
-  color: #4a4a4a;
-  font-size: 24px;
-  margin-bottom: 20px;
+.circular-chart .circle-background {
+  fill: none;
+  stroke: #e6e6e6;
+  stroke-width: 3.8;
 }
 
-/* Căn chỉnh các phần tử trong thẻ card */
-.profile-info {
-  margin-top: 10px;
+.circular-chart .circle-progress-bar {
+  fill: none;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease;
 }
 
-/* Định dạng mỗi mục thông tin */
-.profile-item {
-  margin-bottom: 15px;
+.circle-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 16px;
-}
-
-/* Tô đậm nhãn và thay đổi màu sắc */
-.label {
   font-weight: bold;
-  color: #555;
 }
 
-/* Làm nổi bật trường thông tin */
-.profile-item span {
-  color: #333;
-  margin-left: 10px;
+.blue .circle-progress-bar {
+  stroke: #007bff;
 }
 
-/* Định dạng dành cho các trường thông tin */
-.profile-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0;
+.green .circle-progress-bar {
+  stroke: #28a745;
 }
 
-/* Thêm khoảng cách cuối cùng */
-.profile-item:last-child {
-  border-bottom: none;
-}
-
-
-/* Loading Spinner CSS */
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Chiều cao full màn hình */
-}
-
-.spinner div {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  border: 4px solid #3498db; /* Màu sắc spinner */
-  border-top: 4px solid transparent; /* Đường viền trên trong suốt */
-  border-radius: 50%;
-  animation: spin 1s linear infinite; /* Hiệu ứng xoay liên tục */
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.yellow .circle-progress-bar {
+  stroke: #ffc107;
 }

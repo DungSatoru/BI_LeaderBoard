@@ -56,6 +56,8 @@ const Login = () => {
             birthDate: student.data.birthDate,
             gender: student.data.gender === "M" ? "Nam" : "Nữ",
             phoneNumber: student.data.phoneNumber,
+            email: student.data.email,
+            class: student.data.class,
             speciality: student.data.speciality,
             department: student.data.department,
             courseyear: student.data.courseyear,
@@ -67,7 +69,7 @@ const Login = () => {
           // Chuyển hướng đến trang chủ sau khi lưu thành công
           window.location.href = "/home"; // Chuyển hướng đến trang chủ
         } else {
-          setError("Không thể lấy thông tin sinh viên. Vui lòng thử lại.");
+          setError("Không trò lấy thông tin sinh viên. Vui lòng thử lại.");
         }
       } else {
         setError("Sai thông tin đăng nhập!");
@@ -77,8 +79,8 @@ const Login = () => {
       setLoading(false);
 
       // Nếu lỗi 404, nghĩa là sai mật khẩu
-      if (error.response && error.response.status === 404) {
-        setError("Sai mật khẩu!");
+      if (error.response && error.response.status === 400) {
+        setError("Sai thông tin đăng nhập!");
       } else {
         // Nếu có lỗi khác, thông báo lỗi chung
         setError("Có lỗi xảy ra, vui lòng thử lại.");

@@ -11,8 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* {localStorage.getItem("token") ? <App /> : <Login />} */}
-      <App />
+      {localStorage.getItem("token") ? <App /> : <Login />}
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -3,13 +3,13 @@ import "./Card.css"; // Thêm CSS tùy chỉnh nếu cần
 
 const Card = ({ rank, medal, students, totalPoints, cardClass }) => {
   return (
-    <div className={`card ${cardClass} shadow-sm mb-4`}>
+    <div className={`cardItem ${cardClass} shadow-sm mb-4`}>
       <div className="card-header d-flex align-items-center justify-content-center">
         <div className="medal-wrapper">
           <img src={medal} alt={`${rank} Medal`} className="img-fluid" />
         </div>
       </div>
-      <div className="card-body">
+      <div className="cardItem-body">
         <h5 className="card-title text-center text-uppercase fw-bold">
           Sinh viên hạng {rank}
         </h5>
@@ -22,8 +22,8 @@ const Card = ({ rank, medal, students, totalPoints, cardClass }) => {
               key={index}
               className="list-group-item d-flex justify-content-between align-items-center"
             >
-              <span className="fw-semibold">{student.name}</span>
-              <span className="text-secondary">{student.class}</span>
+              <span className=" text-white">{student.name}</span>
+              <span className=" text-white">{student.class}</span>
             </li>
           ))}
         </ul>

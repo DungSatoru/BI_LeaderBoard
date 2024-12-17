@@ -1,4 +1,4 @@
-/* Áp dụng các biến màu vào card */
+Áp dụng các biến màu vào card
 .card {
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -15,12 +15,12 @@
   display: flex;
 }
 
-.card-body {
+.cardItem-body {
   max-height: 300px;
   overflow-y: auto; /* Cho phép cuộn dọc khi nội dung vượt quá chiều cao tối đa */
 }
 
 /* Ẩn thanh cuộn */
-.card-body::-webkit-scrollbar {
+.cardItem-body::-webkit-scrollbar {
   display: none; /* Ẩn thanh cuộn trên webkit browsers (Chrome, Safari, Edge) */
 }

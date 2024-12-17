@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import Card from "../../Card/Card";
+import Card from "../../CardItem/Card";
 import "./Ranking.css";
 import LeaderboardItem from "../../Table/LeaderboardItem/LeaderboardItem";
 import goldMedal from "../../../assets/Image/gold-rm.png";
@@ -8,6 +8,8 @@ import silverMedal from "../../../assets/Image/silver-rm.png";
 import sampleData from "../../../data/63ht_order.json";
 
 const Ranking = () => {
+  
+
   const [studentsData, setStudentsData] = useState([]);
   const [studentsGold, setStudentsGold] = useState([]);
   const [studentsSilver, setStudentsSilver] = useState([]);
