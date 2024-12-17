@@ -1,8 +1,20 @@
 import React from "react";
 
-const LeaderboardItem = ({ rank, name, class: studentClass, totalScore }) => {
+const LeaderboardItem = ({ rank, name, class: studentClass, totalScore, uid }) => {
+  const studentInfo = JSON.parse(sessionStorage.getItem("studentInfo"));
+
+  const studentId = studentInfo?.uid;
+
+  // Xác định nếu item này là của studentId
+  const isCurrentUser = studentId === uid;
+
   return (
-    <div className="leaderboard-item d-flex align-items-center justify-content-between border-bottom">
+    <div
+      className={`leaderboard-item d-flex align-items-center justify-content-between border-bottom ${
+        isCurrentUser ? "highlight" : ""
+      }`}
+      style={isCurrentUser ? { backgroundColor: "#D8C4B6", color: "white" } : {}}
+    >
       {/* Rank */}
       <div className="rank fs-4 fw-bold mx-3">{rank}</div>
 
@@ -21,7 +33,7 @@ const LeaderboardItem = ({ rank, name, class: studentClass, totalScore }) => {
       <div className="class text-muted">{studentClass}</div>
 
       {/* Points */}
-      <div className="points fs-5 fw-semibold">{totalScore} Điểm</div>
+      <div className="points fs-5 fw-semibold px-2">{totalScore} Điểm</div>
     </div>
   );
 };

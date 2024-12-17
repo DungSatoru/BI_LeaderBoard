@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.card {
+.cardItem {
   position: relative;
   border-radius: 10px;
   width: 100%;
@@ -15,34 +15,34 @@
   min-height: 300px; /* Chiều cao tối thiểu */
 }
 
-.card.gold {
+.cardItem.gold {
   border: 4px solid var(--gold);
   background: linear-gradient(135deg, #ffd700, #ffa500);
   z-index: 3; /* Hạng Nhất cao nhất */
   transform: translateY(-1rem); /* Đẩy lên cao hơn */
 }
 
-.card.silver {
+.cardItem.silver {
   border: 4px solid var(--silver);
   background: linear-gradient(135deg, #c0c0c0, #a9a9a9);
   z-index: 2; /* Hạng Nhì thấp hơn hạng Nhất */
   transform: translateY(0.5rem); /* Đẩy xuống một chút */
 }
 
-.card.bronze {
+.cardItem.bronze {
   border: 4px solid var(--bronze);
   background: linear-gradient(135deg, #cd7f32, #8b4513);
   z-index: 1; /* Hạng Ba thấp nhất */
   transform: translateY(1rem); /* Đẩy xuống nhiều hơn */
 }
 
-/* Áp dụng cho nội dung bên trong card */
-.card .card-body {
+/* Áp dụng cho nội dung bên trong cardItem */
+.cardItem .card-body {
   max-height: 300px;
   overflow-y: scroll; /* Cho phép cuộn dọc */
 }
 
-.card .card-body::-webkit-scrollbar {
+.cardItem .card-body::-webkit-scrollbar {
   display: none; /* Ẩn thanh cuộn trên webkit browsers (Chrome, Safari, Edge) */
 }
 
@@ -50,7 +50,7 @@
 .LeaderboardRankList {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 16px 0 !important;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -75,7 +75,7 @@
 .leaderboard-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 10px 16px;
   border-bottom: 1px solid #ddd;
 }
 
