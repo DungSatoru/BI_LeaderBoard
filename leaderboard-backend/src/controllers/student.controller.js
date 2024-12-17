@@ -150,7 +150,7 @@ const getSummaryMark = async (req, res, next) => {
             "uid": data['student']['studentCode'],
             "displayName": data['student']['displayName'],
             "username": data['student']['username'],
-            "email": data['student']['email'],
+            "email": data['student']['user']['email'],
             "birthPlace": data['student']['birthPlace'],
             "birthDate": data['student']['birthDateString'],
             "gender": data['student']['gender'],
