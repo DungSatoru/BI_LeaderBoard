@@ -156,6 +156,7 @@ const getSummaryMark = async (req, res, next) => {
             "gender": data['student']['gender'],
             "phoneNumber": data['student']['phoneNumber'],
             "idNumber": data['student']['idNumber'],
+            "class": data['student']['enrollmentClass']['className'],
             "speciality": data['student']['enrollmentClass']['speciality']['name'],
             "department": data['student']['enrollmentClass']['department']['name'],
             "courseyear": data['student']['enrollmentClass']['courseyear']['name'],
