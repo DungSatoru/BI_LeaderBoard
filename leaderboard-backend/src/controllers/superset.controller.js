@@ -59,8 +59,6 @@ const getDataSheet = async () => {
 const leaderBoard = async (req, res, next) => {
     try {
         const data = await getDataSheet();
-        // const isOrder = req.body.orderByScore;
-        // const { orderByScore } = req.query;
         const isOrder = req.query.orderByScore === "true";
         
         let result = data.map(item => ({
@@ -68,10 +66,11 @@ const leaderBoard = async (req, res, next) => {
             "uid": item['Mã sinh viên'],
             "name": item['Họ'] + ' ' + item['Tên'],
             "class": item['Lớp'],
+            "cluster": item['Cụm'],
+            "group": item['Nhóm'],
             "absences": item['Vắng'],
             "boardTimes": item['Phát biểu'],
-            "totalScore": item['Tổng điểm'],
-            // "totalScore": 15 - parseInt(item['Vắng']) + parseInt(item['Phát biểu']),
+            "totalScore": item['Tổng điểm']
         }));
 
         if(isOrder === true){
