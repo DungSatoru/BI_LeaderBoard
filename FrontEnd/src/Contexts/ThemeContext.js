@@ -18,17 +18,19 @@ export const ThemeProvider = ({ children }) => {
     // Cập nhật class của body
     if (newMode) {
       document.body.classList.add("dark");
+      document.body.classList.add("bg-dark");
     } else {
       document.body.classList.remove("dark");
+      document.body.classList.remove("bg-dark");
     }
   };
 
   // Đồng bộ class của body khi load trang
   useEffect(() => {
     if (darkMode) {
-      document.body.classList.add("dark");
+      document.body.classList.add("dark", "text-white");
     } else {
-      document.body.classList.remove("dark");
+      document.body.classList.remove("dark", "text-white");
     }
   }, [darkMode]);
 

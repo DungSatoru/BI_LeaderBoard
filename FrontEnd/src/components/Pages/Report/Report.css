@@ -9,6 +9,8 @@
   flex-direction: column;
 }
 
-.table-group {
-  margin-bottom: 20px; /* Khoảng cách dưới bảng */
+
+.highlight {
+  background-color: yellow; /* Thay màu nền */
+  color: black; /* Đổi màu chữ nếu cần */
 }

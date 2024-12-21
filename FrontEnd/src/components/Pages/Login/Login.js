@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import "./Login.css";
+import API_URL from "../../../Config/config";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -9,15 +9,15 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // Set loading ban đầu là false
 
-  const navigate = useNavigate();
-
+  console.log(API_URL);
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true); // Bắt đầu loading khi yêu cầu đăng nhập được gửi
 
     try {
       // Gửi yêu cầu đăng nhập đến API Node.js
-      const response = await axios.post("http://localhost:3010/api/login", {
+      const response = await axios.post(`${API_URL}/login`, {
         client_id: "education_client",
         grant_type: "password",
         username: username,
@@ -25,55 +25,16 @@ const Login = () => {
         client_secret: "password",
       });
 
-      // Sau khi nhận được response, set loading = false
-      setLoading(false);
-
-      // Kiểm tra nếu response có dữ liệu với thông điệp thành công
       if (response.data.message === "Get token success") {
         // Lưu token vào localStorage
         const token = response.data.token;
         localStorage.setItem("token", token);
+        window.location.href = "/home"; // Chuyển hướng đến trang chủ
 
-        // Gọi API lấy thông tin sinh viên
-        const studentResponse = await axios.get(
-          "http://localhost:3010/api/student/getSummaryMark",
-          {
-            headers: {
-              Authorization: token,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (studentResponse.status === 200) {
-          const student = studentResponse.data;
-
-          // Chuẩn hóa thông tin và lưu vào sessionStorage
-          const studentInfo = {
-            uid: student.data.uid,
-            displayName: student.data.displayName,
-            birthPlace: student.data.birthPlace,
-            birthDate: student.data.birthDate,
-            gender: student.data.gender === "M" ? "Nam" : "Nữ",
-            phoneNumber: student.data.phoneNumber,
-            email: student.data.email,
-            class: student.data.class,
-            speciality: student.data.speciality,
-            department: student.data.department,
-            courseyear: student.data.courseyear,
-            gpa4: student.data.gpa4,
-            gpa10: student.data.gpa10,
-          };
-          sessionStorage.setItem("studentInfo", JSON.stringify(studentInfo));
-
-          // Chuyển hướng đến trang chủ sau khi lưu thành công
-          window.location.href = "/home"; // Chuyển hướng đến trang chủ
-        } else {
-          setError("Không trò lấy thông tin sinh viên. Vui lòng thử lại.");
-        }
       } else {
         setError("Sai thông tin đăng nhập!");
       }
+      window.location.href = "/home"; // Chuyển hướng đến trang chủ
     } catch (error) {
       // Sau khi có lỗi, set loading = false để ẩn spinner
       setLoading(false);

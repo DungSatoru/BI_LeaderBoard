@@ -1,15 +1,14 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import Link từ react-router-dom
+import { Link } from "react-router-dom"; // Import Link từ react-router-dom
 import "./Sidebar.css";
 
 function Sidebar() {
-  const navigate = useNavigate(); // Khởi tạo useNavigate
-
   const token = localStorage.getItem("token"); // Lấy token từ localStorage
 
   const handleLogout = () => {
     // Xóa token trong localStorage
     localStorage.removeItem("token");
+    localStorage.removeItem("studentInfo");
     // Điều hướng về trang login
     window.location.href = "/login";
   };
@@ -19,7 +18,7 @@ function Sidebar() {
   };
 
   return (
-    <nav>
+    <nav id="Sidebar">
       <ul className="list-unstyled">
         {/* <li>
           <Link to="/dashboard" className="logo text-decoration-none">
@@ -83,13 +82,29 @@ function Sidebar() {
         </li>
         {token ? (
           <li>
-            <a className="logout text-decoration-none" onClick={handleLogout}>
+            <a
+              className="logout text-decoration-none"
+              href="#"
+              role="link"
+              onClick={(e) => {
+                e.preventDefault(); // Ngăn hành vi mặc định của thẻ <a>
+                handleLogout();
+              }}
+            >
               <i className="fas fa-sign-out-alt"></i> Đăng xuất
             </a>
           </li>
         ) : (
           <li>
-            <a className="login text-decoration-none" onClick={handleLogin}>
+            <a
+              className="login text-decoration-none"
+              href="#"
+              role="link"
+              onClick={(e) => {
+                e.preventDefault(); // Ngăn hành vi mặc định của thẻ <a>
+                handleLogin();
+              }}
+            >
               <i className="fas bi bi-box-arrow-in-right"></i> Đăng nhập
             </a>
           </li>
