@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Report.css";
 import { useTheme } from "../../../Contexts/ThemeContext"; // Import useTheme từ ThemeContext
-import data63HT1 from "../../../data/63ht.json"; // Dữ liệu gốc
+import Class63HT1Data from "../../../data/63ht.json"; // Dữ liệu gốc
 import ImageTop1 from "../../../assets/Image/gold-rm.png";
 import ImageTop2 from "../../../assets/Image/silver-rm.png";
 import ImageTop3 from "../../../assets/Image/bronze-rm.png";

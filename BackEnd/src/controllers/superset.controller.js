@@ -21,9 +21,7 @@ const getToken = async () => {
 
         return response.data['access_token']
     } catch (error) {
-        res.status(error.response?.status || 500).json({
-            message: error.message,
-        });
+        return null;
     }
 };
 
@@ -34,9 +32,7 @@ const getDataSheet = async () => {
         const token = await getToken();
 
         if (!token) {
-            return res.status(400).json({
-                message: 'Authorization token is required',
-            });
+            return [];
         }
 
         const response = await axios.get(apiUrl, {
@@ -63,22 +59,18 @@ const getDataSheet = async () => {
 const leaderBoard = async (req, res, next) => {
     try {
         const data = await getDataSheet();
-        const isOrder = req.body.orderByScore;
-
-        // Mẫu body request
-        // {
-        //     "orderByScore": true
-        // }
-
+        const isOrder = req.query.orderByScore === "true";
+        
         let result = data.map(item => ({
             "no": item['STT'],
             "uid": item['Mã sinh viên'],
             "name": item['Họ'] + ' ' + item['Tên'],
             "class": item['Lớp'],
+            "cluster": item['Cụm'],
+            "group": item['Nhóm'],
             "absences": item['Vắng'],
             "boardTimes": item['Phát biểu'],
-            "totalScore": item['Tổng điểm'],
-            // "totalScore": 15 - parseInt(item['Vắng']) + parseInt(item['Phát biểu']),
+            "totalScore": item['Tổng điểm']
         }));
 
         if(isOrder === true){
