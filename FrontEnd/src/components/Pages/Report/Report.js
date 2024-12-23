@@ -5,6 +5,7 @@ import Class63HT1Data from "../../../data/63ht.json"; // Dữ liệu gốc
 import ImageTop1 from "../../../assets/Image/gold-rm.png";
 import ImageTop2 from "../../../assets/Image/silver-rm.png";
 import ImageTop3 from "../../../assets/Image/bronze-rm.png";
+import API_URL from "../../../Config/config";
 
 // Tính tổng điểm của một nhóm
 const calculateGroupScore = (group) => {
@@ -47,12 +48,15 @@ const getGroupRank = (groupScores) => {
 
 const Report = () => {
   const [studentsData, setStudentsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
+
     const fetchData = async () => {
       // LẤY DỮ LIỆU TỪ API
       const response = await fetch(
-        "http://localhost:3010/api/superset/leaderBoard?orderByScore=false", // Thêm tham số query string vào URL
+        `${API_URL}/superset/leaderBoard?orderByScore=false`, // Thêm tham số query string vào URL
         {
           method: "GET", // Sử dụng GET
           headers: {
@@ -64,15 +68,15 @@ const Report = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+        setLoading(false);
 
         setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
       } else {
         console.error("Error fetching data");
       }
 
-
       // DỮ LIỆU MẪU
-      setStudentsData(Class63HT1Data.data);
+      // setStudentsData(Class63HT1Data.data);
     };
 
     fetchData();
@@ -108,6 +112,14 @@ const Report = () => {
 
   const isCurrentUser = JSON.parse(localStorage.getItem("studentInfo"));
   console.log(isCurrentUser.uid);
+
+  if (loading) {
+    return (
+      <div className="spinner">
+        <div></div>
+      </div>
+    );
+  }
 
   return (
     <section className="report">
@@ -191,20 +203,41 @@ const Report = () => {
         </div>
 
         <div className="tab-content">
-          <ul className="list-group mt-3">
-            <li className="list-group-item">
-              Nhóm 1: Hệ thống Kinh doanh thông minh cho nông nghiệp
-            </li>
-            <li className="list-group-item">
-              Nhóm 2: Hệ thống Quản lý tài chính thông minh cho cá nhân
-            </li>
-            <li className="list-group-item">
-              Nhóm 3: Hệ thống Tìm kiếm mặt bằng cho thuê thông minh
-            </li>
-            <li className="list-group-item">
-              Nhóm 4: Hệ thống Đào tạo thông minh cho sinh viên
-            </li>
-          </ul>
+          <div className="row">
+            <div className="col-md-3 mt-3">
+              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+                <div className="card-header fw-bold">Nhóm 1</div>
+                <div className="card-body">
+                  Hệ thống Kinh doanh thông minh cho nông nghiệp
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 mt-3">
+              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+                <div className="card-header fw-bold">Nhóm 2</div>
+                <div className="card-body">
+                  Hệ thống Quản lý tài chính thông minh cho cá nhân
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 mt-3">
+              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+                <div className="card-header fw-bold">Nhóm 3</div>
+                <div className="card-body">
+                  Hệ thống Tìm kiếm mặt bằng cho thuê thông minh
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 mt-3">
+              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+                <div className="card-header fw-bold">Nhóm 4</div>
+                <div className="card-body">
+                  Hệ thống Đào tạo thông minh cho sinh viên
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           {clusters.map((cluster, index) => (
             <div
@@ -213,20 +246,24 @@ const Report = () => {
                 activeTab === index ? "show active" : ""
               }`}
             >
-              <div className="groups-container mt-2">
+              <div className="row mt-2">
                 {cluster.groups.map((group, groupIndex) => {
                   const totalGroupScore = calculateGroupScore(group);
                   return (
                     <div
                       key={groupIndex}
-                      className={`group-item ${
+                      className={`col-md-6 col-12 mt-2 ${
                         darkMode ? "bg-dark text-white" : ""
                       }`}
                     >
                       <div className="card">
                         <div className="card-header d-flex align-items-center justify-content-between">
-                          <div className="fw-bold text-primary">NHÓM {groupIndex + 1}</div>
-                          <div className="fw-bold text-success">Tổng điểm: {totalGroupScore}</div>
+                          <div className="fw-bold text-primary">
+                            NHÓM {groupIndex + 1}
+                          </div>
+                          <div className="fw-bold text-success">
+                            Tổng điểm: {totalGroupScore}
+                          </div>
                         </div>
                         <div className="card-body">
                           <table
@@ -240,7 +277,9 @@ const Report = () => {
                                 <th className="text-center">Mã sinh viên</th>
                                 <th className="text-center">Họ và Tên</th>
                                 <th className="text-center">Lớp</th>
-                                <th className="text-center">Tổng điểm tích cực</th>
+                                <th className="text-center">
+                                  Tổng điểm tích cực
+                                </th>
                               </tr>
                             </thead>
                             <tbody>

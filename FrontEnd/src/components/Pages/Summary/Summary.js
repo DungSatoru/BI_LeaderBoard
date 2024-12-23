@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 import { sampleData } from "../../../data/sampleData";
 import TableReport from "../../Table/TableReport/TableReport";
 import Class63HT1Data from "../../../data/63ht_order.json";
+import API_URL from "../../../Config/config";
 
 const Summary = () => {
   const [studentsData, setStudentsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Đặt loading thành true khi bắt đầu
+
       // LẤY DỮ LIỆU TỪ API
       const response = await fetch(
-        "http://localhost:3010/api/superset/leaderBoard?orderByScore=false", // Thêm tham số query string vào URL
+        `${API_URL}/superset/leaderBoard?orderByScore=false`, // Thêm tham số query string vào URL
         {
           method: "GET", // Sử dụng GET
           headers: {
@@ -22,6 +26,7 @@ const Summary = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+        setLoading(false);
 
         setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
       } else {
@@ -35,6 +40,16 @@ const Summary = () => {
 
     fetchData();
   }, []);
+
+  
+  if (loading) {
+    return (
+      <div className="spinner">
+        <div></div>
+      </div>
+    );
+  }
+
 
   return (
     <section className="summary">

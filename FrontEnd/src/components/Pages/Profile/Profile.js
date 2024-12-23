@@ -8,18 +8,17 @@ const Profile = () => {
   const { darkMode } = useTheme(); // Lấy giá trị darkMode từ ThemeContext
   const [studentInfo, setStudentInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [studentMark, setStudentMark] = useState(null);
 
   useEffect(() => {
     const fetchStudentInfo = async () => {
       setLoading(true); // Đặt loading thành true khi bắt đầu
       const storedStudentInfo = localStorage.getItem("studentInfo");
+      const token = localStorage.getItem("token");
 
       if (storedStudentInfo) {
         setStudentInfo(JSON.parse(storedStudentInfo));
-        setLoading(false);
       } else {
-        const token = localStorage.getItem("token");
-
         if (token) {
           try {
             const studentResponse = await axios.get(
@@ -60,8 +59,26 @@ const Profile = () => {
         } else {
           console.error("Không tìm thấy token trong localStorage.");
         }
+      }
+
+      try {
+        const studentListMarkResponse = await axios.get(
+          `${API_URL}/student/getListMarkDetail`,
+          {
+            headers: {
+              Authorization: token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         setLoading(false);
+        setStudentMark(studentListMarkResponse.data.data);
+        console.log(studentListMarkResponse.data.data);
+
+        console.log(studentMark);
+      } catch (error) {
+        console.error("Lỗi khi gọi API:", error);
       }
     };
 
@@ -277,6 +294,46 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mt-4">
+        <div className="row">
+          <div className="col-md-12">
+            <div className={`card ${darkMode ? "bg-dark text-white" : ""}`}>
+              <div className="card-header">
+                <h3 className="card-title">Bảng điểm</h3>
+              </div>
+              <div className="card-body">
+                <table className="table table-striped">
+                  <thead>
+                    <tr className={`text-center ${darkMode ? "text-white bg-dark" : ""}`}>
+                      <th className={`text-center ${darkMode ? "text-white bg-dark" : ""}`} scope="col">Môn học</th>
+                      <th className={`text-center ${darkMode ? "text-white bg-dark" : ""}`} scope="col">Điểm</th>
+                      <th className={`text-center ${darkMode ? "text-white bg-dark" : ""}`} scope="col">Điểm Hệ 4</th>
+                      <th className={`text-center ${darkMode ? "text-white bg-dark" : ""}`} scope="col">Xếp loại</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {studentMark && studentMark.length > 0 ? (
+                      studentMark.map((subject, index) => (
+                        <tr key={index} className={` ${darkMode ? "text-white bg-dark" : ""}`}>
+                          <td className={`text-center ${darkMode ? "text-white bg-dark" : ""}`}>{subject.subjectName}</td>
+                          <td className={`text-center ${darkMode ? "text-white bg-dark" : ""}`}>{subject.mark}</td>
+                          <td className={`text-center ${darkMode ? "text-white bg-dark" : ""}`}>{subject.mark4}</td>
+                          <td className={`text-center ${darkMode ? "text-white bg-dark" : ""}`}>{subject.charmark}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="4">Không có dữ liệu điểm.</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
