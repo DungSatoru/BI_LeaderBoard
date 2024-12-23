@@ -46,8 +46,41 @@ const getGroupRank = (groupScores) => {
 };
 
 const Report = () => {
+  const [studentsData, setStudentsData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // LẤY DỮ LIỆU TỪ API
+      const response = await fetch(
+        "http://localhost:3010/api/superset/leaderBoard?orderByScore=false", // Thêm tham số query string vào URL
+        {
+          method: "GET", // Sử dụng GET
+          headers: {
+            "Content-Type": "application/json", // Đảm bảo content-type là application/json
+          },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+
+        setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
+      } else {
+        console.error("Error fetching data");
+      }
+
+
+      // DỮ LIỆU MẪU
+      setStudentsData(Class63HT1Data.data);
+    };
+
+    fetchData();
+  }, []);
+
   // Lọc và nhóm sinh viên
-  const clusters = groupStudents(data63HT1.data);
+  // const clusters = groupStudents(data63HT1.data);
+  const clusters = groupStudents(studentsData);
 
   // Tính điểm cho mỗi nhóm và xếp hạng các nhóm
   const groupRanks = clusters.map((cluster) => {
