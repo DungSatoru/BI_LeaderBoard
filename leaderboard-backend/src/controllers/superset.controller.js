@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const baseUrl = 'http://localhost:8088/api/v1';
+// const baseUrl = 'http://localhost:8088/api/v1';
+const baseUrl = 'http://ec2-54-209-229-214.compute-1.amazonaws.com:8088/api/v1';
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
@@ -10,10 +11,10 @@ const getToken = async () => {
         const apiUrl = `${baseUrl}/security/login`;
 
         const requestData = {
-            "password": "admin",
+            "password": "tuan2106",
             "provider": "db",
             "refresh": true,
-            "username": "admin"
+            "username": "realtun"
         };
 
         // Gửi yêu cầu POST đến API
@@ -27,7 +28,7 @@ const getToken = async () => {
 
 const getDataSheet = async () => {
     try {
-        const apiUrl = `${baseUrl}/chart/161/data/`;
+        const apiUrl = `${baseUrl}/chart/1/data/`;
 
         const token = await getToken();
 
