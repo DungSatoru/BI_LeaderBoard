@@ -71,11 +71,17 @@ const leaderBoard = async (req, res, next) => {
             "group": item['Nhóm'],
             "absences": item['Vắng'],
             "boardTimes": item['Phát biểu'],
-            "totalScore": item['Tổng điểm']
+            "percentGroup": item['Cộng HT Phân nhóm'],
+            "percentLeaderboard": item['Cộng Leaderboard'],
+            "diligence": item['Chuyên cần'],
+            "project": item['Điểm Project'],
+            "boardScore": item['Điểm phát biểu'],
+            "progressScore": item['Điểm quá trình'],
+            "finalScore": item['Điểm QT sau khi cộng Leaderboard']
         }));
 
         if(isOrder === true){
-            result.sort((a, b) => b.totalScore - a.totalScore);
+            result.sort((a, b) => b.finalScore - a.finalScore);
 
             result = result.map((item, index) => ({
                 top: index + 1,
