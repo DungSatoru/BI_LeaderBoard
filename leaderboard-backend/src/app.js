@@ -13,11 +13,16 @@
 // module.exports = app;
 
 
+const { default: helmet } = require('helmet');
+const morgan = require('morgan');
 const express = require('express');
 const cors = require('cors');  // Import cors middleware
 const apiRoutes = require('./routes/api.routes'); // Import routes
 
 const app = express();
+
+app.use(morgan('combined')); // combined, common, short, tiny
+app.use(helmet()); // protect info header
 
 // Cấu hình CORS
 app.use(cors({
