@@ -1,6 +1,6 @@
 const express = require('express');
 const { login, getListMarkDetail, getSummaryMark } = require('../controllers/student.controller');
-const { leaderBoard } = require('../controllers/superset.controller');
+const { leaderBoard, dataSheetByUid } = require('../controllers/superset.controller');
 const router = express.Router();
 
 // student
@@ -10,5 +10,6 @@ router.get('/student/getSummaryMark', getSummaryMark);
 
 // superset
 router.get('/superset/leaderBoard', leaderBoard);
+router.get('/superset/leaderBoard/:uid', dataSheetByUid);
 
 module.exports = router;

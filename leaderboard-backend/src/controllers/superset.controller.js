@@ -61,7 +61,7 @@ const leaderBoard = async (req, res, next) => {
     try {
         const data = await getDataSheet();
         const isOrder = req.query.orderByScore === "true";
-        
+
         let result = data.map(item => ({
             "no": item['STT'],
             "uid": item['Mã sinh viên'],
@@ -80,14 +80,14 @@ const leaderBoard = async (req, res, next) => {
             "finalScore": item['Điểm QT sau khi cộng Leaderboard']
         }));
 
-        if(isOrder === true){
+        if (isOrder === true) {
             result.sort((a, b) => b.finalScore - a.finalScore);
 
             result = result.map((item, index) => ({
                 top: index + 1,
                 ...item,
             }));
-        
+
             // Xoá thuộc tính "no"
             result.forEach(item => delete item.no);
         }
@@ -103,7 +103,45 @@ const leaderBoard = async (req, res, next) => {
     }
 };
 
+const dataSheetByUid = async (req, res, next) => {
+    try {
+        const data = await getDataSheet();
+        const uid = req.params.uid;
+
+        let result = data
+            .map(item => ({
+                // "top": item['STT'],
+                "uid": item['Mã sinh viên'],
+                "name": item['Họ'] + ' ' + item['Tên'],
+                "class": item['Lớp'],
+                "cluster": item['Cụm'],
+                "group": item['Nhóm'],
+                "absences": item['Vắng'],
+                "boardTimes": item['Phát biểu'],
+                "percentGroup": item['Cộng HT Phân nhóm'],
+                "percentLeaderboard": item['Cộng Leaderboard'],
+                "diligence": item['Chuyên cần'],
+                "project": item['Điểm Project'],
+                "boardScore": item['Điểm phát biểu'],
+                "progressScore": item['Điểm quá trình'],
+                "finalScore": item['Điểm QT sau khi cộng Leaderboard']
+            }))
+            // .sort((a, b) => b.finalScore - a.finalScore)
+            .filter(item => item.uid === uid);
+
+        res.status(200).json({
+            message: 'Get info user success',
+            data: result
+        });
+    } catch (error) {
+        res.status(error.response?.status || 500).json({
+            message: error,
+        });
+    }
+};
+
 module.exports = {
     getDataSheet,
-    leaderBoard
+    leaderBoard,
+    dataSheetByUid
 }
