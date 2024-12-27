@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./Report.css";
-import { useTheme } from "../../../Contexts/ThemeContext"; // Import useTheme từ ThemeContext
-import Class63HT1Data from "../../../data/63ht.json"; // Dữ liệu gốc
+import { useTheme } from "../../../Contexts/ThemeContext";
+import API_URL from "../../../Config/config";
 import ImageTop1 from "../../../assets/Image/gold-rm.png";
 import ImageTop2 from "../../../assets/Image/silver-rm.png";
 import ImageTop3 from "../../../assets/Image/bronze-rm.png";
-import API_URL from "../../../Config/config";
 
-// Tính tổng điểm của một nhóm
+// Tính trung bình điểm của một nhóm, làm tròn đến 2 chữ số thập phân
 const calculateGroupScore = (group) => {
-  return group.reduce((total, student) => total + student.totalScore, 0);
+  const totalScore = group.reduce(
+    (total, student) => total + student.finalScore,
+    0
+  );
+  return group.length > 0
+    ? parseFloat((totalScore / group.length).toFixed(2))
+    : 0;
 };
 
 // Lọc và nhóm sinh viên theo cụm và nhóm
@@ -35,17 +40,6 @@ const groupStudents = (data) => {
   }));
 };
 
-// Xếp hạng các nhóm dựa trên tổng điểm
-const getGroupRank = (groupScores) => {
-  const sortedScores = [...groupScores].sort(
-    (a, b) => b.totalScore - a.totalScore
-  );
-  return groupScores.map(
-    (group) =>
-      sortedScores.findIndex((g) => g.totalScore === group.totalScore) + 1
-  );
-};
-
 const Report = () => {
   const [studentsData, setStudentsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -54,64 +48,55 @@ const Report = () => {
     setLoading(true);
 
     const fetchData = async () => {
-      // LẤY DỮ LIỆU TỪ API
-      const response = await fetch(
-        `${API_URL}/superset/leaderBoard?orderByScore=false`, // Thêm tham số query string vào URL
-        {
-          method: "GET", // Sử dụng GET
-          headers: {
-            "Content-Type": "application/json", // Đảm bảo content-type là application/json
-          },
+      try {
+        const response = await fetch(
+          `${API_URL}/superset/leaderBoard?orderByScore=false`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setStudentsData(data.data);
+        } else {
+          console.error("Error fetching data");
         }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      } finally {
         setLoading(false);
-
-        setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
-      } else {
-        console.error("Error fetching data");
       }
-
-      // DỮ LIỆU MẪU
-      // setStudentsData(Class63HT1Data.data);
     };
 
     fetchData();
   }, []);
 
   // Lọc và nhóm sinh viên
-  // const clusters = groupStudents(data63HT1.data);
   const clusters = groupStudents(studentsData);
 
-  // Tính điểm cho mỗi nhóm và xếp hạng các nhóm
-  const groupRanks = clusters.map((cluster) => {
-    const groupScores = cluster.groups.map((group) => ({
-      group,
-      totalScore: calculateGroupScore(group),
-    }));
-    return getGroupRank(groupScores);
-  });
-
-  // Tính tổng điểm của mỗi cụm
-  const clusterScores = clusters.map((cluster) =>
-    cluster.groups.reduce(
+  // Tính điểm trung bình cho mỗi cụm
+  const clusterScores = clusters.map((cluster) => {
+    const totalGroupScores = cluster.groups.reduce(
       (total, group) => total + calculateGroupScore(group),
       0
-    )
-  );
+    );
+    return cluster.groups.length > 0
+      ? parseFloat((totalGroupScores / cluster.groups.length).toFixed(2))
+      : 0;
+  });
 
   // Tìm tổng điểm cao nhất trong các cụm
   const highestClusterScore = Math.max(...clusterScores);
 
   // State để quản lý tab hiện tại
   const [activeTab, setActiveTab] = useState(0);
-  const { darkMode } = useTheme(); // Lấy giá trị darkMode từ ThemeContext
+  const { darkMode } = useTheme();
 
-  const isCurrentUser = JSON.parse(localStorage.getItem("studentInfo"));
-  console.log(isCurrentUser.uid);
+  const currentUser = JSON.parse(localStorage.getItem("studentInfo"));
 
   if (loading) {
     return (
@@ -128,56 +113,51 @@ const Report = () => {
       </div>
 
       <div className="clusters-container">
-        <div>
-          <div className="d-flex justify-content-around">
-            {clusters.map((cluster, clusterIndex) => {
-              // Xác định ảnh cho mỗi cụm
-              const totalScore = cluster.groups.reduce(
-                (total, group) => total + calculateGroupScore(group),
-                0
-              );
-              let imageSrc;
+        <div className="d-flex justify-content-around">
+          {clusters.map((cluster, clusterIndex) => {
+            const averageClusterScore = clusterScores[clusterIndex];
 
-              if (totalScore === highestClusterScore) {
-                imageSrc = ImageTop1;
-              } else if (clusterIndex === 1) {
-                imageSrc = ImageTop2;
-              } else {
-                imageSrc = ImageTop3;
-              }
+            // Xác định ảnh xếp hạng cụm
+            let imageSrc;
+            if (averageClusterScore === highestClusterScore) {
+              imageSrc = ImageTop1;
+            } else if (clusterIndex === 1) {
+              imageSrc = ImageTop2;
+            } else {
+              imageSrc = ImageTop3;
+            }
 
-              return (
-                <div
-                  className="card"
+            return (
+              <div
+                className="card"
+                style={{
+                  width: "18rem",
+                  backgroundImage:
+                    "url(https://t3.ftcdn.net/jpg/09/36/80/68/360_F_936806883_SgyFiO3KOx29JW0wPyceY8FfGv31YEZf.jpg)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+                key={clusterIndex}
+              >
+                <img
+                  src={imageSrc}
+                  className="card-img-top"
+                  alt={`Cụm ${cluster.cluster}`}
                   style={{
-                    width: "18rem",
-                    backgroundImage:
-                      "url(https://t3.ftcdn.net/jpg/09/36/80/68/360_F_936806883_SgyFiO3KOx29JW0wPyceY8FfGv31YEZf.jpg)",
-                    backgroundSize: "cover", // Đảm bảo ảnh nền phủ đầy div
-                    backgroundPosition: "center", // Canh giữa ảnh nền
-                    backgroundRepeat: "no-repeat", // Không lặp lại ảnh nền
+                    width: "100px",
+                    margin: "auto",
+                    display: "block",
                   }}
-                  key={clusterIndex}
-                >
-                  <img
-                    src={imageSrc}
-                    className="card-img-top"
-                    alt={`Cụm ${cluster.cluster}`}
-                    style={{
-                      width: "100px", // Chỉ điều chỉnh chiều rộng ảnh nếu cần
-                      margin: "auto", // Căn giữa ảnh
-                      display: "block", // Đảm bảo ảnh là một block element
-                    }}
-                  />
-                  <div className="card-body">
-                    <p className="card-text text-center h5 fw-bold">
-                      Cụm {cluster.cluster} {": "} {totalScore} điểm
-                    </p>
-                  </div>
+                />
+                <div className="card-body">
+                  <p className="card-text text-center h5 fw-bold">
+                    Cụm {cluster.cluster}: {averageClusterScore} điểm
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="tabs mt-3">
@@ -193,7 +173,6 @@ const Report = () => {
                     activeTab === index ? "active" : ""
                   } ${darkMode ? "bg-dark text-white" : "text-dark"}`}
                   onClick={() => setActiveTab(index)}
-                  href="#"
                 >
                   Cụm {cluster.cluster}
                 </button>
@@ -205,7 +184,11 @@ const Report = () => {
         <div className="tab-content">
           <div className="row">
             <div className="col-md-3 mt-3">
-              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+              <div
+                className={`card text-center ${
+                  darkMode ? "bg-dark text-white border-light" : ""
+                }`}
+              >
                 <div className="card-header fw-bold">Nhóm 1</div>
                 <div className="card-body">
                   Hệ thống Kinh doanh thông minh cho nông nghiệp
@@ -213,7 +196,11 @@ const Report = () => {
               </div>
             </div>
             <div className="col-md-3 mt-3">
-              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+              <div
+                className={`card text-center ${
+                  darkMode ? "bg-dark text-white border-light" : ""
+                }`}
+              >
                 <div className="card-header fw-bold">Nhóm 2</div>
                 <div className="card-body">
                   Hệ thống Quản lý tài chính thông minh cho cá nhân
@@ -221,7 +208,11 @@ const Report = () => {
               </div>
             </div>
             <div className="col-md-3 mt-3">
-              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+              <div
+                className={`card text-center ${
+                  darkMode ? "bg-dark text-white border-light" : ""
+                }`}
+              >
                 <div className="card-header fw-bold">Nhóm 3</div>
                 <div className="card-body">
                   Hệ thống Tìm kiếm mặt bằng cho thuê thông minh
@@ -229,7 +220,11 @@ const Report = () => {
               </div>
             </div>
             <div className="col-md-3 mt-3">
-              <div className={`card text-center ${darkMode ? "bg-dark text-white border-light" : ""}`}>
+              <div
+                className={`card text-center ${
+                  darkMode ? "bg-dark text-white border-light" : ""
+                }`}
+              >
                 <div className="card-header fw-bold">Nhóm 4</div>
                 <div className="card-body">
                   Hệ thống Đào tạo thông minh cho sinh viên
@@ -237,8 +232,6 @@ const Report = () => {
               </div>
             </div>
           </div>
-
-
           {clusters.map((cluster, index) => (
             <div
               key={index}
@@ -256,7 +249,11 @@ const Report = () => {
                         darkMode ? "bg-dark text-white" : ""
                       }`}
                     >
-                      <div className="card">
+                      <div
+                        className={`card ${
+                          darkMode ? "bg-dark text-white" : ""
+                        }`}
+                      >
                         <div className="card-header d-flex align-items-center justify-content-between">
                           <div className="fw-bold text-primary">
                             NHÓM {groupIndex + 1}
@@ -277,9 +274,7 @@ const Report = () => {
                                 <th className="text-center">Mã sinh viên</th>
                                 <th className="text-center">Họ và Tên</th>
                                 <th className="text-center">Lớp</th>
-                                <th className="text-center">
-                                  Tổng điểm tích cực
-                                </th>
+                                <th className="text-center">Điểm quá trình</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -288,8 +283,8 @@ const Report = () => {
                                   <tr
                                     key={index}
                                     className={
-                                      isCurrentUser.uid === item.uid
-                                        ? "active"
+                                      item.uid === currentUser?.uid
+                                        ? "table-primary"
                                         : ""
                                     }
                                   >
@@ -300,7 +295,7 @@ const Report = () => {
                                       {item.class}
                                     </td>
                                     <td className="text-center">
-                                      {item.totalScore}
+                                      {item.finalScore}
                                     </td>
                                   </tr>
                                 ))

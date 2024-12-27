@@ -25,7 +25,6 @@ const Summary = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setLoading(false);
 
         setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response

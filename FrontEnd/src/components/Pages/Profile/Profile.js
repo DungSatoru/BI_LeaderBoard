@@ -74,9 +74,7 @@ const Profile = () => {
 
         setLoading(false);
         setStudentMark(studentListMarkResponse.data.data);
-        console.log(studentListMarkResponse.data.data);
 
-        console.log(studentMark);
       } catch (error) {
         console.error("Lỗi khi gọi API:", error);
       }

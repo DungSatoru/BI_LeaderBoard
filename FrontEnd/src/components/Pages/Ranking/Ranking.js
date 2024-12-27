@@ -32,8 +32,26 @@ const Ranking = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setLoading(false); 
+        console.log(data);
+      //   {
+      //     "top": 1,
+      //     "uid": "2151163671",
+      //     "name": "Dương Xuân Cừ",
+      //     "class": "63HTTT1",
+      //     "cluster": 3,
+      //     "group": 1,
+      //     "absences": 0,
+      //     "boardTimes": 2,
+      //     "percentGroup": 0.2,
+      //     "percentLeaderboard": 0.2,
+      //     "diligence": 10,
+      //     "project": 10,
+      //     "boardScore": 4.8,
+      //     "progressScore": 8.44,
+      //     "finalScore": 10
+      // } 
+        
 
         setStudentsData(data.data); // Giả sử bạn muốn lấy dữ liệu từ key `data` trong response
       } else {
@@ -55,7 +73,7 @@ const Ranking = () => {
         let currentGroup = [students[0]];
 
         for (let i = 1; i < students.length; i++) {
-          if (students[i].totalScore === currentGroup[0].totalScore) {
+          if (students[i].finalScore === currentGroup[0].finalScore) {
             currentGroup.push(students[i]);
           } else {
             groups.push(currentGroup);
@@ -92,7 +110,7 @@ const Ranking = () => {
           rank="Nhì"
           medal={silverMedal}
           students={studentsSilver}
-          totalPoints={studentsSilver[0]?.totalScore || 0}
+          totalPoints={studentsSilver[0]?.finalScore || 0}
           cardClass="silver"
         />
 
@@ -101,7 +119,7 @@ const Ranking = () => {
           rank="Nhất"
           medal={goldMedal}
           students={studentsGold}
-          totalPoints={studentsGold[0]?.totalScore || 0}
+          totalPoints={studentsGold[0]?.finalScore || 0}
           cardClass="gold"
         />
 
@@ -110,7 +128,7 @@ const Ranking = () => {
           rank="Ba"
           medal={bronzeMedal}
           students={studentsBronze}
-          totalPoints={studentsBronze[0]?.totalScore || 0}
+          totalPoints={studentsBronze[0]?.finalScore || 0}
           cardClass="bronze"
         />
       </div>
@@ -130,7 +148,7 @@ const Ranking = () => {
               class={student.class}
               absences={student.absences}
               boardTimes={student.boardTimes}
-              totalScore={student.totalScore}
+              finalScore={student.finalScore}
             />
           ))}
         </div>

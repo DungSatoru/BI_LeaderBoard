@@ -9,7 +9,6 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // Set loading ban đầu là false
 
-  console.log(API_URL);
   
   const handleLogin = async (e) => {
     e.preventDefault();
